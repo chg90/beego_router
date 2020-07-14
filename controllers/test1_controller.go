@@ -4,13 +4,13 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type PersonController struct {
+type Test1Controller struct {
 	beego.Controller
 }
 
 var persons = make(map[string]string)
 
-func (p *PersonController) Post() {
+func (p *Test1Controller) Post() {
 	name := p.GetString("name")
 	age := p.GetString("age")
 	persons[name] = age
@@ -18,9 +18,3 @@ func (p *PersonController) Post() {
 	p.ServeJSON()
 }
 
-func (p *PersonController) Get() {
-	name := p.GetString("name")
-	age := persons[name]
-	p.Data["json"] = age
-	p.ServeJSON()
-}
